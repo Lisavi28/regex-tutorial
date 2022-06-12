@@ -6,71 +6,64 @@ This tutorial explains the use of the regular expression for email validations i
 
 The formal language that helps to express the sequence of characters in specific search patterns in an email is the regular expression or Regex, it allows us to validate the registration or login process.
 
-The email is composed of the following elements
+An email is composed of the following elements
 
-1. is the username
-2. @
-3. email hostname
-4. .
-5. Domain
+1. `username` is the username
+2. `@`
+3. `email`is the email hostname
+4. `.`
+5. `com` is the Domain
 
 (`username@email.com`)
 
 so when you want to validate user input in an email you use
 
-/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})\$/
+`/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})\$/`
 
-We will go deeper into it later.
+We will explain the meaning of this chain in the tutorial.
 
 ## Table of Contents
 
 - [Anchors](#anchors)
 - [Quantifiers](#quantifiers)
-- [OR Operator](#or-operator)
 - [Character Classes](#character-classes)
-- [Flags](#flags)
 - [Grouping and Capturing](#grouping-and-capturing)
 - [Bracket Expressions](#bracket-expressions)
-- [Greedy and Lazy Match](#greedy-and-lazy-match)
-- [Boundaries](#boundaries)
-- [Back-references](#back-references)
-- [Look-ahead and Look-behind](#look-ahead-and-look-behind)
 
 ## Regex Components
 
 ### Anchors
 
 Anchors help you match a position before or after characters.
-
-      `^` : The caret is used to indicate that character next to it must be at the beginning of the text.
-      `$` : The dollar anchor is used to indicate that character next to it must be at the end of the text.
+`^` : The caret is used to indicate that character next to it must be at the beginning of the text.
+`$` : The dollar anchor is used to indicate that character next to it must be at the end of the text.
 
 If we check the validation regular expression at its beginning and end.
 
-/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}\$/
+`/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})\$/`
 
-we will see that it complies with ``^`(caret) and`\$` (dollar) anchors.
+we will see that it complies with `^`(caret) and `$` (dollar) anchors.
 
 ### Quantifiers
 
-### OR Operator
+Quantifiers signal that the preceding token must match a certain number of times.
+
+In the email validation regular expression, the quantifiers include the `+` operator, which will match a character as many times as neededIn other words, the characters may be repeated, but we don't specify the limit. Another quantifier for this regular expression includes `{2,6}`, which will allow a matching range of 2 to 6 characters for the character set `[a-z\.]`.
 
 ### Character Classes
 
-### Flags
+The character class in this expression is `\d`, which matches a single characters that is a digit from 0-9.
 
 ### Grouping and Capturing
 
+Grouping allows us to combine a set of logic to work to together.
+In email validation we have three capture groups. 1. username: `([a-z0-9_\.-]+)` 2. email hostname: `([\da-z\.-]+)` 3. domain: `([a-z\.]{2,6})`
+
 ### Bracket Expressions
 
-### Greedy and Lazy Match
-
-### Boundaries
-
-### Back-references
-
-### Look-ahead and Look-behind
+Bracket expressions allow any value inside the brackets `[]` to be present in the search term.
+For example: `[a-z0-9_\.-]` will match a single digit from 0-9, any character a-z (case senstive), or the characters "." and "-".
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+Yazmín Sánchez feel free to contact me by email lisavi_28@yahoo.com.mx or https://github.com/Lisavi28
